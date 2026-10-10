@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="styles.css">
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -27,37 +27,43 @@
   </header>
 
   <section class="hero" id="home">
-    <div class="hero-text">
-      <h1>Hi, I'm <span>Kriscia</span></h1>
-      <h2>Frontend Developer</h2>
-      <p>I create clean and user-friendly websites that combine design and functionality.</p>
-      <a href="#projects" class="btn">View Projects</a>
-      <a href="#contact" class="btn">Contact Me</a>
-    </div>
+    <div class="hero-container">
+      <div class="hero-text">
+        <h1>Hi, I'm <span>Kriscia</span></h1>
+        <h2>Frontend Developer</h2>
+        <p>I create clean and user-friendly websites that combine design and functionality.</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn">View Projects</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/krscx"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/krsc_aa?igsh=MTJlN2I4cHp6bXpvNQ=="><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/krisciapalconaga"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/kriscia-palconaga-247b77400/"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
 
-    <div class="social-icons">
-  <a href="https://www.facebook.com/krscx"><i class="fab fa-facebook-f"></i>  </a>
-  <a href="https://www.instagram.com/krsc_aa?igsh=MTJlN2I4cHp6bXpvNQ=="><i class="fab fa-instagram"></i></a>
-  <a href="https://github.com/krisciapalconaga"><i class="fab fa-github"></i></a>
-  <a href="https://www.linkedin.com/in/kriscia-palconaga-247b77400/"><i class="fab fa-linkedin-in"></i>
-  </a>
-</div>
-<div class="hero-image">
+      <div class="hero-image">
         <div class="image-frame">
-          <img src="public/photo.jpg">
+          <img src="public/photo.png" alt="Kriscia Photo">
         </div>
       </div>
     </div>
-
   </section>
 
   <section class="about" id="about">
     <div class="about-container">
-    <h2>About Me</h2>
-    <p>
-      I am a frontend developer passionate about building simple, clean, and user-friendly interfaces.
-      I focus on creating well-structured layouts and improving user experience in every project.
-    </p>
+      <h2>About Me</h2>
+      <div class="about-content">
+        <img src="public/photo.png" alt="Kriscia Photo" style="width: 200px; height: 200px; object-fit: cover; border-radius: 12px;">
+        <div class="about-text">
+          <p>
+            I am a frontend developer passionate about building simple, clean, and user-friendly interfaces.
+            I focus on creating well-structured layouts and improving user experience in every project.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -72,28 +78,27 @@
   </section>
 
   <section class="projects" id="projects">
-  <h2>Projects</h2>
+    <h2>Projects</h2>
+    <div class="grid">
+      <div class="project-card">
+        <img src="public/awesometodos.png" alt="AwesomeTodos">
+        <h3>AwesomeTodos</h3>
+        <p>Task manager for organizing daily activities.</p>
+      </div>
 
-  <div class="grid">
-    <div class="project-card">
-      <img src="public/awesometodos.jpg">
-      <h3>AwesomeTodos</h3>
-      <p>Task manager for organizing daily activities.</p>
-    </div>
+      <div class="project-card">
+        <img src="public/commnect.png" alt="Commnect">
+        <h3>Commnect</h3>
+        <p>Community system for announcements and support.</p>
+      </div>
 
-    <div class="project-card">
-      <img src="public/commnect.jpg">
-      <h3>Commnect</h3>
-      <p>Community system for announcements and support.</p>
+      <div class="project-card">
+        <img src="public/my-port.png" alt="Portfolio">
+        <h3>Portfolio</h3>
+        <p>Showcase of my frontend projects and skills.</p>
+      </div>
     </div>
-
-    <div class="project-card">
-      <img src="public/my-port.jpg">
-      <h3>Portfolio</h3>
-      <p>Showcase of my frontend projects and skills.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
   <section class="contact" id="contact">
     <h2>Contact Me</h2>
@@ -110,20 +115,21 @@
   </footer>
 
   <script>
-  const aboutSection = document.querySelector('.about');
+    const aboutSection = document.querySelector('.about-container');
 
-  function slideInAbout() {
-    const sectionTop = aboutSection.getBoundingClientRect().top;
-    const triggerPoint = window.innerHeight - 100; // trigger before fully in view
+    function slideInAbout() {
+      if (!aboutSection) return;
+      const sectionTop = aboutSection.getBoundingClientRect().top;
+      const triggerPoint = window.innerHeight - 100;
 
-    if(sectionTop < triggerPoint){
-      aboutSection.classList.add('visible');
+      if(sectionTop < triggerPoint){
+        aboutSection.classList.add('visible');
+      }
     }
-  }
 
-  window.addEventListener('scroll', slideInAbout);
-  window.addEventListener('load', slideInAbout); // also trigger on page load
-</script>
+    window.addEventListener('scroll', slideInAbout);
+    window.addEventListener('load', slideInAbout);
+  </script>
 
 </body>
 </html>
